@@ -6,35 +6,39 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 export const tabIconData = [
   {
     id: 1,
-    icon: <Ionicons name="home" size={24} />,
+    // icon: <Ionicons name="home" size={24} />,
+    icon: require("../../assets/icon/home.png"),
     tabname: "Home",
+    isBig: true,
   },
   {
     id: 2,
-    icon: <FontAwesome5 name="user-friends" size={24} />,
+    icon: require("../../assets/icon/friends.png"),
     tabname: "friends",
   },
 
   {
     id: 3,
-    icon: <AntDesign name="message1" size={24} />,
+    icon: require("../../assets/icon/messenger.png"),
     tabname: "message",
   },
 
   {
     id: 4,
-    icon: <Ionicons name="notifications-outline" size={24} />,
+    icon: require("../../assets/icon/bell.png"),
     tabname: "notification",
+    isBig: true,
   },
   {
     id: 5,
-    icon: <MaterialIcons name="ondemand-video" size={24} />,
+    icon: require("../../assets/icon/streaming.png"),
     tabname: "video",
   },
   {
     id: 6,
-    icon: <Entypo name="shop" size={24} />,
+    icon: require("../../assets/icon/store.png"),
     tabname: "marketplace",
+    isBig: true,
   },
 ];
 

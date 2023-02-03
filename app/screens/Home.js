@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, StatusBar, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import React, { useState } from "react";
 import HomeTopBar from "../components/HomeTopBar";
 import { TabBar } from "../components/TabBar";
@@ -9,8 +16,10 @@ import AllPosts from "../components/AllPosts";
 import FriendTabContent from "../tabContent/FriendTabContent";
 import MessageTab from "../tabContent/MessageTab";
 import NotificationTabContent from "../tabContent/NotificationTabContent";
-import VideoTabContent from "../data/VideoTabContent";
+import VideoTabContent from "../tabContent/VideoTabContent";
 import MarketPlaceTabContent from "../tabContent/MarketPlaceTabContent";
+import { HEIGHT, WIDTH } from "../utils/AppDimension";
+import AddStoryComp from "../components/AddStoryComp";
 
 const Home = ({}) => {
   const [selectedtab, setSelectedtab] = useState("Home");
@@ -28,29 +37,33 @@ const Home = ({}) => {
       <CustomeTabBar _selectTab={_selectTab} selectedtab={selectedtab} />
 
       {/*  content */}
-      <ScrollView>
-        {selectedtab == "Home" ? (
-          // home content
+      {selectedtab == "Home" ? (
+        // home content
+        <ScrollView>
           <View style={styles.homeContentWrapper}>
             <HomePostComp />
+            {/* stories container */}
+            <AddStoryComp />
+
+            {/* post content */}
             <View style={styles.postcontentWrapper}>
               <AllPosts type="post" />
             </View>
           </View>
-        ) : selectedtab == "friends" ? (
-          // friends content
-          <FriendTabContent />
-        ) : selectedtab == "message" ? (
-          // message tab
-          <MessageTab />
-        ) : selectedtab == "notification" ? (
-          <NotificationTabContent />
-        ) : selectedtab == "video" ? (
-          <VideoTabContent />
-        ) : (
-          <MarketPlaceTabContent />
-        )}
-      </ScrollView>
+        </ScrollView>
+      ) : selectedtab == "friends" ? (
+        // friends content
+        <FriendTabContent />
+      ) : selectedtab == "message" ? (
+        // message tab
+        <MessageTab />
+      ) : selectedtab == "notification" ? (
+        <NotificationTabContent />
+      ) : selectedtab == "video" ? (
+        <VideoTabContent />
+      ) : (
+        <MarketPlaceTabContent />
+      )}
     </View>
   );
 };
@@ -63,10 +76,10 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.LightGray,
   },
   homeContentWrapper: {
-    backgroundColor: "#000",
+    backgroundColor: AppColors.Gray,
   },
   postcontentWrapper: {
-    marginTop: 5,
+    marginTop: 4,
   },
   messageTabWrapper: {
     backgroundColor: AppColors.LightGray,

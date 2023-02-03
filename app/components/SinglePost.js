@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 15,
     backgroundColor: AppColors.White,
-    marginBottom: 4,
+    marginBottom: 2,
   },
   topContainer: {
     paddingHorizontal: 7,

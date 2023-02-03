@@ -1,4 +1,4 @@
-export const chatProfiles = [
+export const chatProfilesData = [
   {
     id: 1,
     name: "Naim",

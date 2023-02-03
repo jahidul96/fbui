@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import React, { useState } from "react";
 import { WIDTH } from "../utils/AppDimension";
 
@@ -19,15 +19,16 @@ const CustomeTabBar = ({ _selectTab, selectedtab }) => {
             key={tabdata.id}
             onPress={() => _selectTab(tabdata.tabname)}
           >
-            <Text
-              style={
-                tabdata.tabname == selectedtab
-                  ? { color: AppColors.primary }
-                  : "#000"
-              }
-            >
-              {tabdata.icon}
-            </Text>
+            <Image
+              source={tabdata.icon}
+              style={[
+                styles.iconImgStyle,
+                tabdata.isBig == true ? {} : { width: 26 },
+                tabdata.tabname == selectedtab && {
+                  tintColor: AppColors.primary,
+                },
+              ]}
+            />
           </TouchableOpacity>
         );
       })}
@@ -49,5 +50,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderBottomColor: AppColors.Gray,
     backgroundColor: AppColors.White,
+  },
+  iconImgStyle: {
+    width: 22,
+    height: 22,
   },
 });

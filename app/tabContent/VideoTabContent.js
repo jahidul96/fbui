@@ -10,13 +10,18 @@ import IconButton from "../components/IconButton";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { AppColors } from "../utils/AppColors";
 import AllPosts from "../components/AllPosts";
-import { videoScrollTabItems } from "./TabIconData";
+import { videoScrollTabItems } from "../data/TabIconData";
 
 const VideoTabContent = () => {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <View>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: AppColors.White,
+      }}
+    >
       {/* top icon and text content */}
       <View style={styles.friendTextContainer}>
         <Text style={styles.friendText}>Videos</Text>
@@ -29,30 +34,36 @@ const VideoTabContent = () => {
         </View>
       </View>
 
-      {/* tab conetnt */}
-      <View style={styles.tabMainWrapper}>
-        <ScrollView horizontal>
-          {videoScrollTabItems.map((data) => {
-            return (
-              <TouchableOpacity
-                key={data.id}
-                style={[
-                  styles.tabStyle,
-                  data.id == activeTab && styles.activeTab,
-                ]}
-                onPress={() => setActiveTab(data.id)}
-              >
-                <Text>{data.icon}</Text>
-                <Text style={styles.tabName}>{data.tabname}</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-      </View>
+      <ScrollView
+        style={{
+          paddingTop: 8,
+        }}
+      >
+        {/* tab conetnt */}
+        <View style={styles.tabMainWrapper}>
+          <ScrollView horizontal>
+            {videoScrollTabItems.map((data) => {
+              return (
+                <TouchableOpacity
+                  key={data.id}
+                  style={[
+                    styles.tabStyle,
+                    data.id == activeTab && styles.activeTab,
+                  ]}
+                  onPress={() => setActiveTab(data.id)}
+                >
+                  <Text>{data.icon}</Text>
+                  <Text style={styles.tabName}>{data.tabname}</Text>
+                </TouchableOpacity>
+              );
+            })}
+          </ScrollView>
+        </View>
 
-      {/* postContent  */}
+        {/* postContent  */}
 
-      <AllPosts type={"video"} />
+        <AllPosts type={"video"} />
+      </ScrollView>
     </View>
   );
 };
@@ -67,6 +78,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     backgroundColor: AppColors.White,
+    height: 55,
   },
 
   friendText: {

@@ -14,46 +14,51 @@ import IconButton from "../components/IconButton";
 
 const FriendTabContent = () => {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.friendTextContainer}>
         <Text style={styles.friendText}>Friends</Text>
         <IconButton icon={<Ionicons name="search" size={24} />} />
       </View>
 
-      {/* tab  */}
-      <View style={styles.tabWrapper}>
-        <TextButton text={"Suggestions"} extraStyle={styles.extraBtnStyle} />
-        <TextButton text={"Your Friends"} extraStyle={styles.extraBtnStyle2} />
-      </View>
+      <ScrollView>
+        {/* tab  */}
+        <View style={styles.tabWrapper}>
+          <TextButton text={"Suggestions"} extraStyle={styles.extraBtnStyle} />
+          <TextButton
+            text={"Your Friends"}
+            extraStyle={styles.extraBtnStyle2}
+          />
+        </View>
 
-      {/* request text */}
-      <View style={styles.requestTextContainer}>
-        <Text style={styles.requestText}>Friend requests</Text>
-        <Text style={styles.seeText}>See all</Text>
-      </View>
+        {/* request text */}
+        <View style={styles.requestTextContainer}>
+          <Text style={styles.requestText}>Friend requests</Text>
+          <Text style={styles.seeText}>See all</Text>
+        </View>
 
-      {/* request */}
-      <View style={styles.reqProfileContainer}>
-        <FriendComp />
-        <FriendComp />
-      </View>
+        {/* request */}
+        <View style={styles.reqProfileContainer}>
+          <FriendComp />
+          <FriendComp />
+        </View>
 
-      {/* may be know text */}
-      <View style={[styles.requestTextContainer, { marginTop: 20 }]}>
-        <Text style={styles.requestText}>Friends you may know</Text>
-      </View>
+        {/* may be know text */}
+        <View style={[styles.requestTextContainer, { marginTop: 20 }]}>
+          <Text style={styles.requestText}>Friends you may know</Text>
+        </View>
 
-      {/* request */}
-      <View
-        style={[
-          styles.reqProfileContainer,
-          { borderBottomWidth: 0, borderTopWidth: 0 },
-        ]}
-      >
-        <FriendComp />
-        <FriendComp />
-      </View>
-    </ScrollView>
+        {/* request */}
+        <View
+          style={[
+            styles.reqProfileContainer,
+            { borderBottomWidth: 0, borderTopWidth: 0 },
+          ]}
+        >
+          <FriendComp />
+          <FriendComp />
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -62,6 +67,7 @@ export default FriendTabContent;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: AppColors.White,
+    flex: 1,
   },
   friendTextContainer: {
     flexDirection: "row",
@@ -69,6 +75,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 15,
     paddingVertical: 10,
+    height: 55,
   },
   iconWrapper: {
     width: 45,
@@ -85,6 +92,7 @@ const styles = StyleSheet.create({
   tabWrapper: {
     paddingHorizontal: 15,
     flexDirection: "row",
+    paddingTop: 8,
   },
   extraBtnStyle: {
     width: "40%",

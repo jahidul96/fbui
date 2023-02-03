@@ -10,13 +10,17 @@ import IconButton from "../components/IconButton";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import { AppColors } from "../utils/AppColors";
-import { chatProfiles } from "../data/chatProfileData";
+import { chatProfilesData } from "../data/chatProfileData";
 import ChatProfileShowCase from "../components/ChatProfileShowCase";
 import SingleChats from "../components/SingleChats";
 
 const MessageTab = () => {
   return (
-    <View>
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
       {/* top text and icon btn content */}
       <View style={styles.messageSearchContainer}>
         <Text style={styles.messageText}>Messages</Text>
@@ -31,39 +35,41 @@ const MessageTab = () => {
 
       {/* stories */}
 
-      <View style={styles.storiesContentWrapper}>
-        <ScrollView
-          horizontal
-          contentContainerStyle={styles.storiesContentWrapper}
-        >
-          <TouchableOpacity style={styles.storyContainer}>
-            <TouchableOpacity style={styles.story}>
-              <Ionicons name="camera-outline" size={18} />
-              <View style={styles.addWrapper}>
-                <AntDesign name="plus" size={12} color={AppColors.White} />
-              </View>
+      <ScrollView>
+        <View style={styles.storiesContentWrapper}>
+          <ScrollView
+            horizontal
+            contentContainerStyle={styles.storiesContentWrapper}
+          >
+            <TouchableOpacity style={styles.storyContainer}>
+              <TouchableOpacity style={styles.story}>
+                <Ionicons name="camera-outline" size={18} />
+                <View style={styles.addWrapper}>
+                  <AntDesign name="plus" size={12} color={AppColors.White} />
+                </View>
+              </TouchableOpacity>
+              <Text>Add Story</Text>
             </TouchableOpacity>
-            <Text>Add Story</Text>
-          </TouchableOpacity>
 
-          {/* friends profile show for msg  */}
+            {/* friends profile show for msg  */}
 
-          {chatProfiles.map((chatprofile) => (
-            <ChatProfileShowCase
-              chatprofile={chatprofile}
-              key={chatprofile.id}
-            />
+            {chatProfilesData.map((chatprofile) => (
+              <ChatProfileShowCase
+                chatprofile={chatprofile}
+                key={chatprofile.id}
+              />
+            ))}
+          </ScrollView>
+        </View>
+
+        {/* chats */}
+        <View style={styles.chatWrapper}>
+          {chatProfilesData.slice(0, 3).map((chatprofile) => (
+            <SingleChats chat={chatprofile} key={chatprofile.id} />
+            // <ChatProfileShowCase chatprofile={chatprofile} />
           ))}
-        </ScrollView>
-      </View>
-
-      {/* chats */}
-      <View style={styles.chatWrapper}>
-        {chatProfiles.slice(0, 3).map((chatprofile) => (
-          <SingleChats chat={chatprofile} key={chatprofile.id} />
-          // <ChatProfileShowCase chatprofile={chatprofile} />
-        ))}
-      </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };

@@ -4,14 +4,22 @@ import { FontScale, HEIGHT, WIDTH } from "../utils/AppDimension";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { AppColors } from "../utils/AppColors";
 import IconButton from "./IconButton";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeTopBar = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.logoText}>facebook</Text>
       <View style={styles.rightContainer}>
-        <IconButton icon={<Ionicons name="search" size={24} />} />
-        <IconButton icon={<Ionicons name="menu" size={24} />} />
+        <IconButton
+          icon={<Ionicons name="search" size={24} />}
+          onPress={() => navigation.navigate("Search")}
+        />
+        <IconButton
+          icon={<Ionicons name="menu" size={24} />}
+          onPress={() => navigation.navigate("Dashboard")}
+        />
       </View>
     </View>
   );

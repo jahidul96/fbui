@@ -2,9 +2,12 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { AppColors } from "../utils/AppColors";
 
-const IconButton = ({ icon, extraStyle }) => {
+const IconButton = ({ icon, extraStyle, onPress }) => {
   return (
-    <TouchableOpacity style={[styles.iconWrapper, extraStyle]}>
+    <TouchableOpacity
+      style={[styles.iconWrapper, extraStyle]}
+      onPress={onPress}
+    >
       {icon}
     </TouchableOpacity>
   );

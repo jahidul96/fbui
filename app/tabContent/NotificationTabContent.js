@@ -1,10 +1,16 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import IconButton from "../components/IconButton";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { AppColors } from "../utils/AppColors";
 import { Image } from "react-native";
-import { chatProfiles } from "../data/chatProfileData";
+import { chatProfilesData } from "../data/chatProfileData";
 
 const img =
   "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
@@ -20,11 +26,13 @@ const NotificationTabContent = () => {
 
       {/* notifications */}
 
-      <View style={styles.notifyContent}>
-        {chatProfiles.map((notification) => (
-          <Notification key={notification.id} notification={notification} />
-        ))}
-      </View>
+      <ScrollView>
+        <View style={styles.notifyContent}>
+          {chatProfilesData.map((notification) => (
+            <Notification key={notification.id} notification={notification} />
+          ))}
+        </View>
+      </ScrollView>
     </View>
   );
 };
