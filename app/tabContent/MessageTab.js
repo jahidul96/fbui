@@ -38,7 +38,7 @@ const MessageTab = () => {
         >
           <TouchableOpacity style={styles.storyContainer}>
             <TouchableOpacity style={styles.story}>
-              <Ionicons name="person" size={18} />
+              <Ionicons name="camera-outline" size={18} />
               <View style={styles.addWrapper}>
                 <AntDesign name="plus" size={12} color={AppColors.White} />
               </View>
@@ -49,15 +49,20 @@ const MessageTab = () => {
           {/* friends profile show for msg  */}
 
           {chatProfiles.map((chatprofile) => (
-            <ChatProfileShowCase chatprofile={chatprofile} />
+            <ChatProfileShowCase
+              chatprofile={chatprofile}
+              key={chatprofile.id}
+            />
           ))}
         </ScrollView>
       </View>
 
       {/* chats */}
       <View style={styles.chatWrapper}>
-        <SingleChats />
-        <SingleChats />
+        {chatProfiles.slice(0, 3).map((chatprofile) => (
+          <SingleChats chat={chatprofile} key={chatprofile.id} />
+          // <ChatProfileShowCase chatprofile={chatprofile} />
+        ))}
       </View>
     </View>
   );

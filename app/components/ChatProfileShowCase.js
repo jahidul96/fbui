@@ -9,7 +9,7 @@ const ChatProfileShowCase = ({ chatprofile }) => {
     <TouchableOpacity style={styles.storyContainer}>
       <TouchableOpacity style={styles.story}>
         <Image source={{ uri: chatprofile.pic }} style={styles.imgStyle} />
-        <View style={styles.addWrapper} />
+        <View style={styles.activeIndicator} />
       </TouchableOpacity>
       <Text>
         {chatprofile.name.length > 4
@@ -39,12 +39,12 @@ const styles = StyleSheet.create({
     height: "100%",
     borderRadius: 100,
   },
-  addWrapper: {
+  activeIndicator: {
     position: "absolute",
     width: 10,
     height: 10,
     borderRadius: 100,
-    backgroundColor: "green",
+    backgroundColor: AppColors.ActiveColor,
     bottom: -2,
     right: 3,
   },

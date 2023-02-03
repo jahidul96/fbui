@@ -10,7 +10,7 @@ import { HEIGHT, WIDTH } from "../utils/AppDimension";
 const personImg =
   "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80";
 
-const SinglePost = ({ post }) => {
+const SinglePost = ({ post, type }) => {
   return (
     <View style={styles.container}>
       {/* poster details */}
@@ -43,37 +43,49 @@ const SinglePost = ({ post }) => {
 
       {/* postimg */}
       <View style={styles.postContentContainer}>
-        <Text style={styles.captionStyle}>{post.caption}</Text>
-        <View style={styles.postimgContainer}>
+        {type == "post" && (
+          <Text style={styles.captionStyle}>{post.caption}</Text>
+        )}
+
+        <View
+          style={[
+            styles.postimgContainer,
+            type == "video" && { height: HEIGHT / 3.5 },
+          ]}
+        >
           <Image
             source={{ uri: personImg }}
             style={[styles.imgStyle, { borderRadius: 0 }]}
           />
         </View>
+        {type == "video" && (
+          <Text style={[styles.captionStyle, { marginTop: 3 }]}>
+            {post.caption}
+          </Text>
+        )}
       </View>
 
       {/* react icons */}
-      <View style={styles.reactImgContainer}>
-        <Image
-          source={require("../../assets/icon/star.png")}
-          style={styles.reactImgIconStyle}
-        />
-        <Image
-          source={require("../../assets/icon/like.png")}
-          style={styles.reactImgIconStyle}
-        />
-        <Image
-          source={require("../../assets/icon/love.png")}
-          style={styles.reactImgIconStyle}
-        />
+      <View style={styles.iconandViewsWrapper}>
+        <View style={styles.reactImgContainer}>
+          <Image
+            source={require("../../assets/icon/star.png")}
+            style={styles.reactImgIconStyle}
+          />
+          <Image
+            source={require("../../assets/icon/like.png")}
+            style={styles.reactImgIconStyle}
+          />
+          <Image
+            source={require("../../assets/icon/love.png")}
+            style={styles.reactImgIconStyle}
+          />
+        </View>
+        {type == "video" && <Text>12k Views</Text>}
       </View>
 
       {/* bottom content */}
       <View style={styles.bottomContainer}>
-        {/* <TouchableOpacity style={styles.likeIconContainer}>
-          <AntDesign name="like2" size={19} />
-          <Text style={styles.countText}>{post.likes}</Text>
-        </TouchableOpacity> */}
         <LikeButton
           text={post.likes}
           icon={<AntDesign name="like2" size={19} />}
@@ -137,6 +149,7 @@ const styles = StyleSheet.create({
   dotsIconStyle: {
     marginRight: 7,
   },
+
   postContentContainer: {
     marginTop: 10,
   },
@@ -166,6 +179,7 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.LightGray,
     borderRadius: 30,
   },
+
   countText: {
     marginLeft: 3,
     fontSize: 16,
@@ -175,13 +189,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  reactImgContainer: {
+  iconandViewsWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     paddingHorizontal: 10,
+  },
+  reactImgContainer: {
     marginTop: 10,
     flexDirection: "row",
+    marginBottom: 2,
   },
   reactImgIconStyle: {
-    width: 20,
-    height: 20,
+    width: 17,
+    height: 17,
   },
 });

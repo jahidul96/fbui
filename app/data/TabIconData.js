@@ -37,3 +37,31 @@ export const tabIconData = [
     tabname: "marketplace",
   },
 ];
+
+export const videoScrollTabItems = [
+  {
+    id: 1,
+    icon: <MaterialIcons name="ondemand-video" size={24} />,
+    tabname: "For you",
+  },
+  {
+    id: 2,
+    icon: <Ionicons name="videocam" size={24} />,
+    tabname: "Live",
+  },
+  {
+    id: 3,
+    icon: <Ionicons name="ios-checkmark-done-circle-sharp" size={24} />,
+    tabname: "Following",
+  },
+  {
+    id: 4,
+    icon: <Ionicons name="save" size={24} />,
+    tabname: "Saved",
+  },
+  {
+    id: 5,
+    icon: <Ionicons name="game-controller" size={24} />,
+    tabname: "Gaming",
+  },
+];

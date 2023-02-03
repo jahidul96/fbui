@@ -8,6 +8,9 @@ import { AppColors } from "../utils/AppColors";
 import AllPosts from "../components/AllPosts";
 import FriendTabContent from "../tabContent/FriendTabContent";
 import MessageTab from "../tabContent/MessageTab";
+import NotificationTabContent from "../tabContent/NotificationTabContent";
+import VideoTabContent from "../data/VideoTabContent";
+import MarketPlaceTabContent from "../tabContent/MarketPlaceTabContent";
 
 const Home = ({}) => {
   const [selectedtab, setSelectedtab] = useState("Home");
@@ -24,14 +27,14 @@ const Home = ({}) => {
       {/* tabbar  */}
       <CustomeTabBar _selectTab={_selectTab} selectedtab={selectedtab} />
 
-      {/* profile post content */}
+      {/*  content */}
       <ScrollView>
         {selectedtab == "Home" ? (
           // home content
           <View style={styles.homeContentWrapper}>
             <HomePostComp />
             <View style={styles.postcontentWrapper}>
-              <AllPosts />
+              <AllPosts type="post" />
             </View>
           </View>
         ) : selectedtab == "friends" ? (
@@ -40,8 +43,12 @@ const Home = ({}) => {
         ) : selectedtab == "message" ? (
           // message tab
           <MessageTab />
+        ) : selectedtab == "notification" ? (
+          <NotificationTabContent />
+        ) : selectedtab == "video" ? (
+          <VideoTabContent />
         ) : (
-          <></>
+          <MarketPlaceTabContent />
         )}
       </ScrollView>
     </View>
