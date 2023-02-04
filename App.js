@@ -7,6 +7,7 @@ import Search from "./app/screens/Search";
 import Dashboard from "./app/screens/Dashboard";
 import Profile from "./app/screens/Profile";
 import AddPost from "./app/screens/AddPost";
+import Login from "./app/screens/auth/Login";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="AddPost" component={AddPost} />
+        <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );

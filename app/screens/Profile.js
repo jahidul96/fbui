@@ -45,7 +45,10 @@ const Profile = () => {
           </View>
 
           {/* profile img */}
-          <TouchableOpacity style={styles.profileImgWrapper}>
+          <TouchableOpacity
+            style={styles.profileImgWrapper}
+            activeOpacity={0.9}
+          >
             <Image source={{ uri: personImg }} style={styles.profileImgStyle} />
             <View style={styles.profileAddPicContainer}>
               <Ionicons name="camera" size={20} />
@@ -113,7 +116,11 @@ const Profile = () => {
             <View style={styles.friendsProfileWrapper}>
               {chatProfilesData.slice(0, 6).map((data) => {
                 return (
-                  <TouchableOpacity style={styles.friendProfile}>
+                  <TouchableOpacity
+                    activeOpacity={0.9}
+                    style={styles.friendProfile}
+                    key={data.id}
+                  >
                     <Image
                       source={{ uri: data.pic }}
                       style={styles.friendProfileImgStyle}
