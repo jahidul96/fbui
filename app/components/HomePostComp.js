@@ -21,7 +21,10 @@ const HomePostComp = ({ profile }) => {
 
           <Image source={{ uri: personImg }} style={styles.imgStyle} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.inputBtnStyle}>
+        <TouchableOpacity
+          style={styles.inputBtnStyle}
+          onPress={() => navigation.navigate("AddPost")}
+        >
           <Text style={styles.textStyle}>What's on your mind?</Text>
         </TouchableOpacity>
 

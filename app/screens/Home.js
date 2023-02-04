@@ -32,7 +32,6 @@ const Home = ({}) => {
       <StatusBar backgroundColor={"transparent"} barStyle="dark-content" />
       {/* logobar content */}
       {selectedtab == "Home" && <HomeTopBar />}
-
       {/* tabbar  */}
       <CustomeTabBar _selectTab={_selectTab} selectedtab={selectedtab} />
 

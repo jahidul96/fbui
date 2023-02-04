@@ -4,16 +4,16 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { AppColors } from "../utils/AppColors";
 
-const TopHeadBackComp = () => {
+const TopHeadBackComp = ({ extraStyle, text }) => {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, extraStyle]}>
       <Ionicons
         name="arrow-back"
         size={22}
         onPress={() => navigation.goBack()}
       />
-      <Text style={styles.nameText}>Akash</Text>
+      <Text style={styles.nameText}>{text}</Text>
     </View>
   );
 };

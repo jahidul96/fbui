@@ -7,7 +7,7 @@ import { AppColors } from "../utils/AppColors";
 const img =
   "https://www.adobe.com/content/dam/cc/us/en/creativecloud/photography/discover/cut-out-an-image/thumbnail.jpeg";
 
-const FriendComp = ({ friend, confirmText, removeText }) => {
+const FriendComp = ({ friend, confirmText, removeText, time }) => {
   return (
     <View style={styles.container}>
       <View style={styles.imgWrapper}>
@@ -17,7 +17,7 @@ const FriendComp = ({ friend, confirmText, removeText }) => {
       <View style={styles.rightContainer}>
         <View style={styles.nameContainer}>
           <Text style={styles.name}>{friend?.name}</Text>
-          <Text>2d</Text>
+          {time && <Text>2d</Text>}
         </View>
         <View style={styles.btnContainer}>
           <TextButton

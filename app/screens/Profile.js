@@ -30,7 +30,7 @@ const personImg =
 const Profile = () => {
   return (
     <View style={styles.container}>
-      <TopHeadBackComp />
+      <TopHeadBackComp text={"Akash"} />
 
       {/* scroll content */}
       <ScrollView>
@@ -196,8 +196,8 @@ const Profile = () => {
             marginTop: 4,
           }}
         >
-          {myPosts.map((post) => (
-            <SinglePost key={post.id} post={post} type="post" />
+          {myPosts.map((post, index) => (
+            <SinglePost key={index} post={post} type="post" />
           ))}
         </View>
       </ScrollView>

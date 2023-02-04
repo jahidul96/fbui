@@ -2,10 +2,12 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import { AppColors } from "../utils/AppColors";
 
-const InputComp = ({ placeholder, extraInputStyle }) => (
+const InputComp = ({ placeholder, extraInputStyle, multiline }) => (
   <TextInput
     placeholder={placeholder}
     style={[styles.inputStyle, extraInputStyle]}
+    multiline={multiline}
+    textAlignVertical={multiline && "top"}
   />
 );
 

@@ -45,6 +45,7 @@ const FriendTabContent = () => {
               key={friend.id}
               confirmText={"Confirm"}
               removeText="Delete"
+              time
             />
           ))}
         </View>
