@@ -38,6 +38,7 @@ const VideoTabContent = () => {
         style={{
           paddingTop: 8,
         }}
+        showsVerticalScrollIndicator={false}
       >
         {/* tab conetnt */}
         <View style={styles.tabMainWrapper}>

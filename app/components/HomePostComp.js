@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 const personImg =
   "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80";
 
-const HomePostComp = () => {
+const HomePostComp = ({ profile }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -17,7 +17,8 @@ const HomePostComp = () => {
           style={styles.profileImgWrapper}
           onPress={() => navigation.navigate("Profile")}
         >
-          <View style={styles.activeStyle} />
+          {profile ? null : <View style={styles.activeStyle} />}
+
           <Image source={{ uri: personImg }} style={styles.imgStyle} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.inputBtnStyle}>
@@ -26,7 +27,7 @@ const HomePostComp = () => {
 
         <TouchableOpacity style={styles.photoIconWrapper}>
           <Ionicons name="images" size={24} />
-          <Text>Photos</Text>
+          {profile ? null : <Text>Photos</Text>}
         </TouchableOpacity>
       </View>
     </View>

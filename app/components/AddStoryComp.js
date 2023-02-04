@@ -73,11 +73,12 @@ const FriendStory = ({ storie }) => (
 
 const styles = StyleSheet.create({
   container: {
-    height: HEIGHT / 3.8,
+    height: HEIGHT / 3.9,
     flexGrow: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: -2,
+    marginBottom: 0,
+    marginTop: -2,
   },
   storiesContainer: {
     flexGrow: 1,

@@ -26,7 +26,7 @@ const NotificationTabContent = () => {
 
       {/* notifications */}
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.notifyContent}>
           {chatProfilesData.map((notification) => (
             <Notification key={notification.id} notification={notification} />

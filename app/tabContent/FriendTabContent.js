@@ -11,6 +11,7 @@ import { AppColors } from "../utils/AppColors";
 import TextButton from "../components/TextButton";
 import FriendComp from "../components/FriendComp";
 import IconButton from "../components/IconButton";
+import { chatProfilesData } from "../data/chatProfileData";
 
 const FriendTabContent = () => {
   return (
@@ -20,7 +21,7 @@ const FriendTabContent = () => {
         <IconButton icon={<Ionicons name="search" size={24} />} />
       </View>
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {/* tab  */}
         <View style={styles.tabWrapper}>
           <TextButton text={"Suggestions"} extraStyle={styles.extraBtnStyle} />
@@ -38,8 +39,14 @@ const FriendTabContent = () => {
 
         {/* request */}
         <View style={styles.reqProfileContainer}>
-          <FriendComp />
-          <FriendComp />
+          {chatProfilesData.slice(3, 6).map((friend) => (
+            <FriendComp
+              friend={friend}
+              key={friend.id}
+              confirmText={"Confirm"}
+              removeText="Delete"
+            />
+          ))}
         </View>
 
         {/* may be know text */}
@@ -54,8 +61,14 @@ const FriendTabContent = () => {
             { borderBottomWidth: 0, borderTopWidth: 0 },
           ]}
         >
-          <FriendComp />
-          <FriendComp />
+          {chatProfilesData.map((friend) => (
+            <FriendComp
+              friend={friend}
+              key={friend.id}
+              confirmText={"Add"}
+              removeText="Remove"
+            />
+          ))}
         </View>
       </ScrollView>
     </View>
@@ -107,7 +120,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     justifyContent: "space-between",
     paddingBottom: 5,
-    marginTop: 30,
+    marginTop: 20,
   },
   requestText: {
     fontWeight: "bold",

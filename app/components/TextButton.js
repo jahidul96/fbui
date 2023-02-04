@@ -2,10 +2,11 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import { AppColors } from "../utils/AppColors";
 
-const TextButton = ({ text, extraStyle, extraTextStyle }) => {
+const TextButton = ({ text, extraStyle, extraTextStyle, icon }) => {
   return (
     <TouchableOpacity style={[styles.btnStyle, extraStyle]}>
-      <Text style={[styles.text, extraTextStyle]}>{text}</Text>
+      {icon && <Text style={{ marginRight: text ? 6 : 0 }}>{icon}</Text>}
+      {text && <Text style={[styles.text, extraTextStyle]}>{text}</Text>}
     </TouchableOpacity>
   );
 };

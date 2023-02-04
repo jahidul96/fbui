@@ -7,25 +7,25 @@ import { AppColors } from "../utils/AppColors";
 const img =
   "https://www.adobe.com/content/dam/cc/us/en/creativecloud/photography/discover/cut-out-an-image/thumbnail.jpeg";
 
-const FriendComp = () => {
+const FriendComp = ({ friend, confirmText, removeText }) => {
   return (
     <View style={styles.container}>
       <View style={styles.imgWrapper}>
-        <Image source={{ uri: img }} style={styles.imgStyle} />
+        <Image source={{ uri: friend?.pic }} style={styles.imgStyle} />
       </View>
 
       <View style={styles.rightContainer}>
         <View style={styles.nameContainer}>
-          <Text style={styles.name}>Akash</Text>
+          <Text style={styles.name}>{friend?.name}</Text>
           <Text>2d</Text>
         </View>
         <View style={styles.btnContainer}>
           <TextButton
-            text={"Confirm"}
+            text={confirmText}
             extraStyle={styles.extraBtnStyle}
             extraTextStyle={styles.btntextExtraStyle}
           />
-          <TextButton text={"Delete"} extraStyle={styles.extraBtnStyle2} />
+          <TextButton text={removeText} extraStyle={styles.extraBtnStyle2} />
         </View>
       </View>
     </View>

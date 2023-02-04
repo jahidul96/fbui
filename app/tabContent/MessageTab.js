@@ -35,7 +35,7 @@ const MessageTab = () => {
 
       {/* stories */}
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.storiesContentWrapper}>
           <ScrollView
             horizontal

@@ -54,7 +54,7 @@ const SinglePost = ({ post, type }) => {
           ]}
         >
           <Image
-            source={{ uri: personImg }}
+            source={{ uri: post.postImg }}
             style={[styles.imgStyle, { borderRadius: 0 }]}
           />
         </View>

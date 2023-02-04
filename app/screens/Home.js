@@ -39,7 +39,7 @@ const Home = ({}) => {
       {/*  content */}
       {selectedtab == "Home" ? (
         // home content
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.homeContentWrapper}>
             <HomePostComp />
             {/* stories container */}

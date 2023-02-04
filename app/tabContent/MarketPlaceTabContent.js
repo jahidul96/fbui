@@ -45,7 +45,7 @@ const MarketPlaceTabContent = () => {
         <IconButton icon={<Ionicons name="search" size={24} />} />
       </View>
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {/* tab conetnt */}
         <View style={styles.tabMainWrapper}>
           <ScrollView
